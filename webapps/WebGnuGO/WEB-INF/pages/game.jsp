@@ -28,7 +28,7 @@
  			});
 
             $('button#cancel').click(function(event) {
-                window.location = "/end";
+                window.location = "/WebGnuGO";
             });
  			
  			$('div#winner .modal-body p#text').html('White wins by resign');

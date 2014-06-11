@@ -1,7 +1,7 @@
 @CHARSET "UTF-8";
 
 body {
-	background-image: url("../img/SOTATSU.jpg");
+	background-image: url("http://www.gallery-sakura.com/picture/SOTATSU.jpg");
 	-webkit-background-size: cover;
     -background-size: cover;
     -background-size: cover;
@@ -9,7 +9,7 @@ body {
 }
 
 table#goban {
-    background-image: url("../img/Wood_floor.jpg");
+    background-image: url(../img/Wood_floor.jpg);
     border-collapse: collapse;
     height: 500px;
 /*     margin: 2em auto; */

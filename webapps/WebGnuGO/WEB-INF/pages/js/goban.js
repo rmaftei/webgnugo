@@ -384,7 +384,7 @@ App.attach_events = function() {
 
 	$('button#end').click(function(event) {
 		placeStone('quit');
-		window.location = "/end";
+		window.location = "game/end";
 	});
 
 	$('button#resign').click(function(event) {
