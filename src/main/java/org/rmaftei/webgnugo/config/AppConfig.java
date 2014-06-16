@@ -23,7 +23,8 @@ public class AppConfig {
         String pathToGnuGO = null;
 
         if(OSUtil.isUnix()) {
-            pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
+            pathToGnuGO = servletContext.getRealPath("gnugo");
+//            pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
 
 //            chmodExecutable(pathToGnuGO);
         }
