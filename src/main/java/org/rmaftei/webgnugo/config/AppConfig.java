@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Scope;
 import javax.servlet.ServletContext;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 
 @Configuration
 @ComponentScan(basePackages = {"org.rmaftei.webgnugo"})
@@ -27,6 +28,14 @@ public class AppConfig {
         if(OSUtil.isUnix()) {
             pathToGnuGO = System.getenv("GNUGO_APP");
             System.out.println("gnugo path: " + pathToGnuGO);
+            System.out.println(servletContext.getRealPath(pathToGnuGO));
+            System.out.println(servletContext.getRealPath("."));
+
+            try {
+                System.out.println(FileUtils.fileRead("test"));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 //            pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
 
 //            chmodExecutable(pathToGnuGO);
