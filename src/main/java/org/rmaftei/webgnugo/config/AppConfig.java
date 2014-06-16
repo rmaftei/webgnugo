@@ -25,7 +25,7 @@ public class AppConfig {
         if(OSUtil.isUnix()) {
             pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
 
-            chmodExecutable(pathToGnuGO);
+//            chmodExecutable(pathToGnuGO);
         }
         else if(OSUtil.isWindows()) {
             pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/windows/gnugo.exe");
