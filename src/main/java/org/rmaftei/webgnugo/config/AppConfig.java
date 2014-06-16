@@ -1,5 +1,6 @@
 package org.rmaftei.webgnugo.config;
 
+import org.apache.commons.io.FileUtils;
 import org.rmaftei.gnugowrapper.GnuGoMode;
 import org.rmaftei.gnugowrapper.GnuGoWrapper;
 import org.rmaftei.webgnugo.util.OSUtil;
@@ -10,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
 import javax.servlet.ServletContext;
+import java.io.File;
 import java.io.IOException;
 
 @Configuration
@@ -23,7 +25,8 @@ public class AppConfig {
         String pathToGnuGO = null;
 
         if(OSUtil.isUnix()) {
-            pathToGnuGO = servletContext.getRealPath("gnugo");
+            System.out.println(new File(".").getAbsolutePath());
+            System.out.println(FileUtils.getPath("../gnugo/gnugo"));
 //            pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
 
 //            chmodExecutable(pathToGnuGO);
