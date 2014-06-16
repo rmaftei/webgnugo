@@ -28,24 +28,6 @@ public class AppConfig {
         if(OSUtil.isUnix()) {
             pathToGnuGO = "gnugo/gnugo";
 
-            System.out.println("BOOLEAN: " + FileUtils.fileExists(pathToGnuGO));
-            System.out.println("gnugo path: " + pathToGnuGO);
-
-            String[] everythingInThisDir = new File(".").list();
-            for (String name : everythingInThisDir) {
-                System.out.println(name);
-            }
-
-//            everythingInThisDir = new File("..").list();
-//            for (String name : everythingInThisDir) {
-//                System.out.println(name);
-//            }
-//
-//            everythingInThisDir = new File(System.getenv("HOME")).list();
-//            for (String name : everythingInThisDir) {
-//                System.out.println(name);
-//            }
-
 //            pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
 
 //            chmodExecutable(pathToGnuGO);
