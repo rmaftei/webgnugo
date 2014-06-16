@@ -27,15 +27,10 @@ public class AppConfig {
 
         if(OSUtil.isUnix()) {
             pathToGnuGO = System.getenv("GNUGO_APP");
-            System.out.println("gnugo path: " + pathToGnuGO);
-            System.out.println(servletContext.getRealPath(pathToGnuGO));
-            System.out.println(servletContext.getRealPath("."));
 
-            try {
-                System.out.println(FileUtils.fileRead("test"));
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            System.out.println("BOOLEAN: " + FileUtils.fileExists(pathToGnuGO));
+            System.out.println("gnugo path: " + pathToGnuGO);
+
 //            pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
 
 //            chmodExecutable(pathToGnuGO);
