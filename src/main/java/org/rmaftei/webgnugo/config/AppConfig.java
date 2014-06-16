@@ -31,6 +31,21 @@ public class AppConfig {
             System.out.println("BOOLEAN: " + FileUtils.fileExists(pathToGnuGO));
             System.out.println("gnugo path: " + pathToGnuGO);
 
+            String[] everythingInThisDir = new File(".").list();
+            for (String name : everythingInThisDir) {
+                System.out.println(name);
+            }
+
+            everythingInThisDir = new File("..").list();
+            for (String name : everythingInThisDir) {
+                System.out.println(name);
+            }
+
+            everythingInThisDir = new File(System.getenv("HOME")).list();
+            for (String name : everythingInThisDir) {
+                System.out.println(name);
+            }
+
 //            pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
 
 //            chmodExecutable(pathToGnuGO);
@@ -40,6 +55,7 @@ public class AppConfig {
         }
 
         GnuGoWrapper.Builder gnugoBuilder = new GnuGoWrapper.Builder(pathToGnuGO, GnuGoMode.GTP);
+        System.out.println(gnugoBuilder);
 
         return gnugoBuilder;
     }
