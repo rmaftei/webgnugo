@@ -112,7 +112,7 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
-                    <outputDirectory>deployments</outputDirectory>
+                    <outputDirectory>webapps</outputDirectory>
                     <warName>ROOT</warName>
                 </configuration>
             </plugin>
