@@ -28,6 +28,13 @@ public class AppConfig {
         if(OSUtil.isUnix()) {
             pathToGnuGO = "gnugo/gnugo";
 
+            System.out.println("BOOLEAN: " + FileUtils.fileExists(pathToGnuGO));
+            System.out.println("gnugo path: " + pathToGnuGO);
+
+            System.out.println(new File("."));
+            System.out.println(new File("./"));
+
+
 //            pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
 
 //            chmodExecutable(pathToGnuGO);
