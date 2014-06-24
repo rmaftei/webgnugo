@@ -28,18 +28,6 @@ public class AppConfig {
         if(OSUtil.isUnix()) {
             pathToGnuGO = "gnugo/gnugo";
 
-            try {
-                System.out.println("####");
-                System.out.println(new File(".").getCanonicalPath());
-                System.out.println(new File("../").getCanonicalPath());
-
-                System.out.println("Access file from $OPENSHIFT_DATA_DIR");
-                System.out.println(FileUtils.fileRead(System.getenv("OPENSHIFT_DATA_DIR") + "test.file"));
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
 //            pathToGnuGO = servletContext.getRealPath("/WEB-INF/gnugo/linux/gnugo");
 
 //            chmodExecutable(pathToGnuGO);
