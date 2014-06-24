@@ -18,7 +18,7 @@
             <groupId>org.rmaftei</groupId>
             <artifactId>gnugo-wrapper</artifactId>
             <version>2.0</version>
-        </dependency>
+         </dependency>
 
         <dependency>
             <groupId>org.rmaftei</groupId>
