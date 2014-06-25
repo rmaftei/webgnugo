@@ -10,13 +10,10 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan(basePackages = {"org.rmaftei.webgnugo"})
 public class AppConfig {
 
-    @Bean()
+    @Bean
     public GnuGoWrapper.Builder gnugoBuilder() {
         String pathToGnuGO = "gnugo/gnugo";
-
-        GnuGoWrapper.Builder gnugoBuilder = new GnuGoWrapper.Builder(pathToGnuGO, GnuGoMode.GTP);
-        System.out.println(gnugoBuilder);
-
-        return gnugoBuilder;
+        
+        return new GnuGoWrapper.Builder(pathToGnuGO, GnuGoMode.GTP);
     }
 }
