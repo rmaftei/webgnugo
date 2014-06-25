@@ -169,7 +169,6 @@ function placeStone(position) {
 				window.location = "/end";
 			}
 			else if (!msg.error) {
-			
 				parseBoard(msg.game);
                 var lastMove = msg.game.lastMove;
 
