@@ -26,6 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin().loginPage("/login").failureUrl("/login?error")
 				.and().csrf().disable();
 
-		http.sessionManagement().maximumSessions(1);
+		http.sessionManagement().maximumSessions(1)
+				.expiredUrl("/session_expired");
 	}
 }

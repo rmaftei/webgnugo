@@ -164,7 +164,11 @@ function placeStone(position) {
 		data : "",
 		contentType : "application/json; charset=utf-8",
 		success : function(msg) {
-			if (!msg.error) {
+			if(msg.session_expired !== undefined) {
+				placeStone('quit');
+				window.location = "/end";
+			}
+			else if (!msg.error) {
 				parseBoard(msg.game);
                 var lastMove = msg.game.lastMove;
 
@@ -186,6 +190,7 @@ function placeStone(position) {
                                 '<p>' + lastMove.color + ' '
                                     + App.LETTERS[lastMove.position.column - 1]
                                     + lastMove.position.line + '</p>');
+                            pass = 0;
                         }
                 }
 				getComputerStone(); 
