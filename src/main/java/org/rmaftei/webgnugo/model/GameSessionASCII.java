@@ -20,29 +20,30 @@ import org.springframework.stereotype.Component;
  * @author romeo
  * 
  */
-@Component(value="ASCII")
+@Component(value = "ASCII")
 @Scope("session")
 public class GameSessionASCII implements GameSession {
 
-    public static final String PATH_EXEC = "gnugo";
-    Logger LOGGER = Logger.getLogger(GameSessionASCII.class.getName());
+	public static final String PATH_EXEC = "gnugo";
+	Logger LOGGER = Logger.getLogger(GameSessionASCII.class.getName());
 
 	private GnuGoWrapper gnuGoWrapper;
 
 	private final GnuGoParser gnuGoParser = GnuGOModes.ASCII.createParser();
 
 	public Result startGame(GameOptions gameOptions) {
-		gnuGoWrapper = new GnuGoWrapper.Builder(PATH_EXEC, GnuGoMode.ASCII).boardsize(gameOptions.getBoardsize()).build();
-        try {
-            gnuGoWrapper.start();
-        } catch (GnuGOWrapperException e) {
-            e.printStackTrace();
-        }
+		gnuGoWrapper = new GnuGoWrapper.Builder(PATH_EXEC, GnuGoMode.ASCII)
+				.boardsize(gameOptions.getBoardsize()).build();
+		try {
+			gnuGoWrapper.start();
+		} catch (GnuGOWrapperException e) {
+			e.printStackTrace();
+		}
 
-        sleep();
+		sleep();
 		String res = gnuGoWrapper.getOutputAsString(2L);
 		try {
-			return Result.Game(gnuGoParser.parse(res)); 
+			return Result.Game(gnuGoParser.parse(res));
 		} catch (Exception e) {
 			return Result.Error(e.getMessage());
 		}
@@ -50,7 +51,7 @@ public class GameSessionASCII implements GameSession {
 
 	public Result play(String pos) {
 		gnuGoWrapper.sendCommand(Command.PLAY_BLACK, pos);
-		
+
 		return getOutput();
 	}
 
@@ -59,17 +60,17 @@ public class GameSessionASCII implements GameSession {
 		try {
 			List<String> listResult = gnuGoWrapper.getOutput(2L);
 			int splitIdx = listResult.indexOf("GNU Go is thinking...");
-			
+
 			listResult = listResult.subList(splitIdx + 1, listResult.size());
 			StringBuilder resultBuilder = new StringBuilder();
-			
-			for(String str : listResult) {
+
+			for (String str : listResult) {
 				resultBuilder.append(str);
 				resultBuilder.append("\n");
 			}
-			
+
 			LOGGER.info(resultBuilder.toString());
-			
+
 			return Result.Game(gnuGoParser.parse(resultBuilder.toString()));
 		} catch (Exception e) {
 			return Result.Error(e.getMessage());

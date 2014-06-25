@@ -21,16 +21,17 @@ import java.io.IOException;
 @Controller
 @Scope("request")
 public class GameController {
-	
+
 	@Autowired(required = true)
 	@Qualifier("GTP")
 	private GameSession gameSession;
-	
-	@RequestMapping(value = "/game/create", method = RequestMethod.POST, consumes = {MediaType.APPLICATION_JSON_VALUE})
+
+	@RequestMapping(value = "/game/create", method = RequestMethod.POST, consumes = { MediaType.APPLICATION_JSON_VALUE })
 	@ResponseBody
-	public Result createGame(@RequestBody String request) throws ParseException, IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        GameOptions gameOptions = mapper.readValue(request, GameOptions.class);
+	public Result createGame(@RequestBody String request)
+			throws ParseException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		GameOptions gameOptions = mapper.readValue(request, GameOptions.class);
 
 		return gameSession.startGame(gameOptions);
 	}
@@ -40,13 +41,13 @@ public class GameController {
 	public Result undo() {
 		return gameSession.undo();
 	}
-	
+
 	@RequestMapping(value = "/game/play/{position}", method = RequestMethod.POST)
 	@ResponseBody
 	public Result putStone(@PathVariable String position) {
 		return gameSession.play(position);
 	}
-	
+
 	@RequestMapping(value = "/game/play", method = RequestMethod.POST)
 	@ResponseBody
 	public Result putStone() {

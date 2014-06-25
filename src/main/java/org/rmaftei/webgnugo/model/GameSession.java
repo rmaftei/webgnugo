@@ -7,7 +7,7 @@ public interface GameSession {
 	void stopGame();
 
 	Result play(String position);
-	
+
 	Result generateMove();
 
 	Result undo();
