@@ -168,8 +168,12 @@ function placeStone(position) {
 				placeStone('quit');
 				window.location = "/end";
 			}
+<<<<<<< HEAD
 			else if (!msg.error) {
+=======
 			
+			if (!msg.error) {
+>>>>>>> branch 'master' of ssh://5390533ee0b8cde78e000628@webgnugo-rmaftei.rhcloud.com/~/git/webgnugo.git/
 				parseBoard(msg.game);
                 var lastMove = msg.game.lastMove;
 
