@@ -15,7 +15,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.inMemoryAuthentication().withUser("honinbo")
 				.password("honinb0123").roles("USER");
-
 	}
 
 	@Override
@@ -24,6 +23,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.formLogin().loginPage("/login").failureUrl("/login?error")
 				.and().csrf().disable();
 
-		http.sessionManagement().invalidSessionUrl("/").maximumSessions(1);
+		http.sessionManagement().maximumSessions(1).expiredUrl("/");
 	}
 }

@@ -16,11 +16,11 @@ public class AppInitializer implements WebApplicationInitializer {
 			throws ServletException {
 		AnnotationConfigWebApplicationContext ctx = new AnnotationConfigWebApplicationContext();
 		ctx.setConfigLocation(CONFIG_PATH);
-		
+
 		servletContext.addListener(new ContextLoaderListener(ctx));
 		ServletRegistration.Dynamic dispatcher = servletContext.addServlet(
 				"dispatcher", new DispatcherServlet(ctx));
 		dispatcher.setLoadOnStartup(1);
 		dispatcher.addMapping("/");
-    }
+	}
 }
