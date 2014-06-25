@@ -51,4 +51,9 @@ public class WebsiteController {
 	public String notFound() {
 		return "notfound";
 	}
+
+	@RequestMapping(value = "/session_expired", method = RequestMethod.GET)
+	public String sessionExpired() {
+		return "{\"session_expired\":true}";
+	}
 }
