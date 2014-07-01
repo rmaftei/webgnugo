@@ -22,9 +22,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/*").access("hasRole('USER')")
-				.and().formLogin().loginPage("/login")
-				.failureUrl("/login?error").and().csrf().disable();
+		http.authorizeRequests().anyRequest().hasRole("USER").and().formLogin()
+				.loginPage("/login").failureUrl("/login?error").and().csrf()
+				.disable();
 
 		http.sessionManagement().maximumSessions(1)
 				.expiredUrl("/session_expired");
