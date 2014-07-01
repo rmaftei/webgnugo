@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class WebsiteController {
 
+	@RequestMapping(value = "/prototype", method = RequestMethod.GET)
+	public String prototype() {
+		return "prototype";
+	}
+
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
 		model.addAttribute("boardsize", 9);
