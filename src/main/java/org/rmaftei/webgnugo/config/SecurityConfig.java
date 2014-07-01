@@ -22,16 +22,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-				.anyRequest()
-				.authenticated()
-				.and()
-				// .antMatchers("/").fullyAuthenticated()
-				// .antMatchers("/small").fullyAuthenticated()
-				// .antMatchers("/medium").fullyAuthenticated()
-				// .antMatchers("/big").fullyAuthenticated().antMatchers("/end")
-				// .fullyAuthenticated().antMatchers("/game/**")
-				// .fullyAuthenticated().and()
+		http.authorizeRequests().antMatchers("/").fullyAuthenticated()
+				.antMatchers("/small").fullyAuthenticated()
+				.antMatchers("/medium").fullyAuthenticated()
+				.antMatchers("/big").fullyAuthenticated().antMatchers("/end")
+				.fullyAuthenticated().antMatchers("/game/**")
+				.fullyAuthenticated().and()
 
 				.formLogin().loginPage("/login").failureUrl("/login?error")
 				.and().csrf().disable();
