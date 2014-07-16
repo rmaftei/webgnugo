@@ -10,6 +10,27 @@
 	top: -82.3%;
 }
 
+.vr-line {
+	border-left: thin solid #000000;
+	border-width: 2px;
+	height: 100%;
+	width: 0px;
+	position: relative;
+	left: 24px;
+}
+
+
+.cross {
+	margin: -2px;
+	background-color: red;
+	width: 50px;
+	height: 50px;
+}
+
+.line {
+	display: flex;
+}
+
 .hr-line-left-margin {
 	display: block;
 	height: 0px;
@@ -23,16 +44,49 @@
 	float: right;
 }
 
-.vr-line {
+.vr-line-margin {
 	border-left: thin solid #000000;
 	border-width: 2px;
 	height: 100%;
 	width: 0px;
 	position: relative;
 	left: 24px;
+	top: 0px;
 }
 
-.vr-line-left-margin {
+.hr-line-right-margin {
+	display: block;
+	height: 0px;
+	border: 0;
+	border-top: 2px solid #000;
+	margin: 1em 0;
+	padding: 0;
+	width: 50%;
+	position: relative;
+	top: -82.3%;
+}
+
+.margin-top-left-cross {
+	margin: -2px;
+	background-color: red;
+	width: 50px;
+	height: 50px;
+}
+
+.hr-line-top-left-margin {
+	display: block;
+	height: 0px;
+	border: 0;
+	border-top: 2px solid #000;
+	margin: 1em 0;
+	padding: 0;
+	width: 50%;
+	position: relative;
+	top: -32.3%%;
+	float: right;
+}
+
+.vr-line-top-margin {
 	border-left: thin solid #000000;
 	border-width: 2px;
 	height: 50%;
@@ -42,20 +96,49 @@
 	top: 25px;
 }
 
-.cross {
-	margin: -2px;
-	background-color: red;
-	width: 50px;
-	height: 50px;
+.hr-line-top-right-margin {
+	display: block;
+	height: 0px;
+	border: 0;
+	border-top: 2px solid #000;
+	margin: 1em 0;
+	padding: 0;
+	width: 50%;
+	position: relative;
+	top: -32.3%;
 }
 
-.margin-right-cross {
-	margin: -2px;
-	background-color: red;
-	width: 50px;
-	height: 50px;
+.vr-line-bottom-margin {
+	border-left: thin solid #000000;
+	border-width: 2px;
+	height: 50%;
+	width: 0px;
+	position: relative;
+	left: 24px;
+	top: 0px;
 }
 
-.line {
-	display: flex;
+.hr-line-bottom-left-margin {
+	display: block;
+	height: 0px;
+	border: 0;
+	border-top: 2px solid #000;
+	margin: 1em 0;
+	padding: 0;
+	width: 52%;
+	position: relative;
+	top: -32.3%;
+	float: right;
+}
+
+.hr-line-bottom-right-margin {
+	display: block;
+	height: 0px;
+	border: 0;
+	border-top: 2px solid #000;
+	margin: 1em 0;
+	padding: 0;
+	width: 51%;
+	position: relative;
+	top: -32.3%;
 }
