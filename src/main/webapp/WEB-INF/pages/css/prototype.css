@@ -1,5 +1,5 @@
 .goban {
-	background-image: url("../img-default/Wood_floor.jpg");
+	background-image: url("../img/Wood_floor.jpg");
     border-collapse: collapse;
     height: auto;
     -moz-box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.5);
