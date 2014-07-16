@@ -1,3 +1,23 @@
+.goban {
+	background-image: url("../img-default/Wood_floor.jpg");
+    border-collapse: collapse;
+    height: auto;
+    -moz-box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.5);
+    table-layout: fixed;
+    text-shadow: 0 1px hsla(0, 50%, 100%, 0.5);
+    -webkit-box-shadow: 0 0 1em hsla(0, 0%, 0%, 0.5);
+}
+
+.cross {
+	margin: -2px;
+	width: 50px;
+	height: 50px;
+}
+
+.line {
+	display: flex;
+}
+
 .hr-line {
 	display: block;
 	height: 0px;
@@ -17,18 +37,6 @@
 	width: 0px;
 	position: relative;
 	left: 24px;
-}
-
-
-.cross {
-	margin: -2px;
-	background-color: red;
-	width: 50px;
-	height: 50px;
-}
-
-.line {
-	display: flex;
 }
 
 .hr-line-center {

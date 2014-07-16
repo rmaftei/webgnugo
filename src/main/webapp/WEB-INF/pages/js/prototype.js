@@ -11,24 +11,14 @@ var BOTTOM_MARGIN = "<div class='cross'><div class='vr-line-bottom-margin'></div
 
 function generateLine(line, size) {
 	var output = "<div class='line'>";
-
+	var margin = '';
+	
 	for (var column = 0; column < size; column++) {
-		if(isTopLeft(line, column)) {
-			output += TOP_LEFT;
-		} else if(line == 0 && column == size - 1) {
-			output += TOP_RIGHT;
-		} else if(line == size - 1 && column == 0) {
-			output += BOTTOM_LEFT;
-		} else if(line == size - 1 && column == size - 1) {
-			output += BOTTOM_RIGHT;
-		} else if(column == 0) {
-			output += LEFT_MARGIN;
-		} else if(column == size - 1) {
-			output += RIGHT_MARGIN;
-		} else if(line == 0) {
-			output += TOP_MARGIN;
-		} else if(line == size - 1) {
-			output += BOTTOM_MARGIN;
+		margin = setMargin(line, column, size);
+		
+		if(margin.length != 0) {
+			output += margin;
+			margin = '';
 		}
 		else {
 			output += CROSS;
@@ -40,20 +30,45 @@ function generateLine(line, size) {
 	return output;
 }
 
-function isTopLeft(line, column) {
-	return line == 0 && column == 0;
+function setMargin(line, column, size) {
+	var margin = "";
+	
+	if(line == 0 && column == 0) {
+		margin += TOP_LEFT;
+	} else if(line == 0 && column == size - 1) {
+		margin += TOP_RIGHT;
+	} else if(line == size - 1 && column == 0) {
+		margin += BOTTOM_LEFT;
+	} else if(line == size - 1 && column == size - 1) {
+		margin += BOTTOM_RIGHT;
+	} else if(column == 0) {
+		margin += LEFT_MARGIN;
+	} else if(column == size - 1) {
+		margin += RIGHT_MARGIN;
+	} else if(line == 0) {
+		margin += TOP_MARGIN;
+	} else if(line == size - 1) {
+		margin += BOTTOM_MARGIN;
+	}
+	
+	return margin;
 }
 
-function generateGrid(gridSize) {
+function generateGoban(id, gridSize) {
 	var grid = '';
 	
 	for(var i = 0; i < gridSize; i++) {
 		grid += generateLine(i, gridSize);
 	}
 	
-	return grid;
+	var goban = $('div#' + id);
+	
+	goban.append(grid);
+	goban.css('width', gridSize*50-74);
 }
 
 $(document).ready(function() {
-	$('div#goban').append(generateGrid(13));
+	generateGoban('19', 19);
+	generateGoban('13', 13);
+	generateGoban('9', 9);
 });
