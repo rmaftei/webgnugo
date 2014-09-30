@@ -1,0 +1,41 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="jcanvas.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var i = 0;
+			var spacing = 35;
+			
+			for(i = 0 ; i < 18; i++) {
+				$('canvas').drawLine({
+				  strokeStyle: '#000',
+				  strokeWidth: 3,
+				  x1: 5, y1: (i * 30) + spacing,
+				  x2: 575, y2: (i * 30) + spacing
+				}).drawLine({
+				  strokeStyle: '#000',
+				  strokeWidth: 3,
+				  y1: 5, x1: (i * 30) + spacing,
+				  y2: 575, x2: (i * 30) + spacing
+				})
+			}
+			
+			$('canvas').drawRect({
+			  strokeStyle: '#000',
+			  strokeWidth: 3,
+			  x: 5, y: 5,
+			  width: 570,
+			  height: 570,
+			  fromCenter: false
+			});
+		});	
+
+	</script>
+</head>
+<body>
+	<center>
+		<canvas width='810' height='610'></canvas>
+	</center>
+</body>
+</html>
